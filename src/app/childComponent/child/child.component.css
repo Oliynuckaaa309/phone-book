@@ -1,0 +1,62 @@
+
+@import '../../styles/modal.css';
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 20px;
+
+}
+th,td{
+    height: 70px;
+    text-align: center;  
+}
+tr{
+    border-top: 1px solid rgb(231, 228, 228);
+}
+tr:hover{
+    background-color: rgb(245, 242, 242);
+}
+.btn-details{
+    width: 70%;
+    height: 32px;
+    color: white;
+    background-color: black;
+}
+.edit-button{
+    width: 70%;
+    height: 30px;
+    border: none;
+    background-color: orange;
+    border-radius: 2px;
+   font-weight: 600;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.delete-button{
+    width: 70%;
+    height: 30px;
+    border: none;
+    background-color: rgb(223, 71, 44);
+    border-radius: 2px;
+    color: white;
+}
+.is-open-edit{
+    background-color: white;
+    width: 50%;
+    min-height:380px;
+    border: 1px solid black;
+    padding-top: 20px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+}
+label{
+    font-size: 14px;
+}
+.title-add{
+    font-size: 18px;
+}

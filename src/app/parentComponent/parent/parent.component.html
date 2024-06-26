@@ -1,0 +1,66 @@
+<div class="main-wraper">
+    <h1 class="main-text">My phone book!</h1>
+    <div class="inside-area"> 
+        <input type="text" class="main-input" placeholder="search text goes here..." [(ngModel)]="searchTerm"  name="searchTerm" >
+        <button value="add" class="main-button" (click)="addNewUser()"  >Add phone number</button>
+    </div>
+    <ng-template [ngIf]="activeModal" >
+        <div class="overlay">
+        <div class="is-open">
+        <h3 class="title-add">Add new phone number!</h3>
+        <div class="is-open2">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-style">
+                <div >
+                    <label for="firstName">First Name:</label>
+                    <input id="firstName" formControlName="firstName" placeholder="type here first name...">
+                </div>
+                 <div class="warnings" *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">
+                  First Name is required
+                </div> 
+              <div>
+                <label for="lastName">Last Name:</label>
+                <input id="lastName" formControlName="lastName" placeholder="type here last name...">
+              </div>
+               <div class="warnings" *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched">
+                  Last Name is required
+                </div> 
+              <div>
+                <label for="phoneNumber">Phone Number:</label>
+                <input id="phoneNumber" formControlName="phoneNumber" placeholder="type here phone number...">
+              </div>
+                <div  class="warnings" *ngIf="userForm.get('phoneNumber')?.invalid && userForm.get('phoneNumber')?.touched">
+                  Invalid Phone Number. The required quantity is 10
+                </div> 
+              <div>
+                <label for="email">Email:</label>
+                <input id="email" formControlName="email" placeholder="type here email...">
+              </div>
+                
+                <div class="warnings" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+                  Invalid Email
+                </div>
+              <div>  <label for="address">Address:</label>
+                <input id="address" formControlName="address" placeholder="type here address..." ></div>
+              
+               <div  class="warnings" *ngIf="userForm.get('address')?.invalid && userForm.get('address')?.touched">
+                  Address is required
+                </div> 
+              <div> <label for="dateOfBirth">Date of Birth:</label>
+                <input id="dateOfBirth" type="date" formControlName="dateOfBirth"></div>
+               
+                 <div  class="warnings" *ngIf="userForm.get('dateOfBirth')?.invalid && userForm.get('dateOfBirth')?.touched">
+                  Date of Birth is required
+                </div> 
+               </form>
+              
+        </div>
+     <div class="wrap-btn">
+        <button value="cancel" class="button-cancel" (click)="closeModal()" >Cancel</button>
+        <button value="save" class="button-save" (click)="saveNewUser()" [disabled]="userForm.invalid ">Save</button>
+     </div>
+       </div></div>
+    </ng-template>
+    <app-child [fromParentObject]="usersInfo" parentSearchTerm={{searchTerm}}></app-child>
+</div>
+    
+    
